@@ -1,0 +1,17 @@
+mat-grid-tile {
+    background: lightblue;
+    
+  }
+
+  .example-card {
+    width: 450px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+
+  md-grid-tile figure {
+    align-items: flex-start!important;
+}

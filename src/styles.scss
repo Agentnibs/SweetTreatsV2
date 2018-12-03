@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+body{
+    margin-left:100px;
+    margin-right:100px;
+}
+
+
+.mat-card:not([class*=mat-elevation-z]){
+    box-shadow:none;
+}

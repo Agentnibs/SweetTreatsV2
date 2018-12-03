@@ -1,0 +1,56 @@
+
+<mat-card class="specials" role="extras-row">
+
+    <mat-card-title>View Our Specials!</mat-card-title>
+    <mat-card-actions>
+      <mat-accordion>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+            <mat-panel-title></mat-panel-title>
+            <mat-panel-description>
+              Click here to view specials!
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+       <p>All orders over $100 now get 10% off!</p>
+       <p>All orders over $200 now get 15% off!</p>
+      </mat-expansion-panel>
+    </mat-accordion>
+    </mat-card-actions>
+  
+  </mat-card>
+  <mat-card class="Join" role="extras-row">
+  
+    <mat-card-title>Become a Member!</mat-card-title>
+    <mat-card-actions>
+        <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                  <mat-panel-title></mat-panel-title>
+                  <mat-panel-description>
+                      View Our Member Perks
+                  </mat-panel-description>
+              </mat-expansion-panel-header>
+             <p>Members are eligible to take advantage of exclusive offers and promotions. New members even get a free cookie just for signing up, now isn't that sweet!</p>
+             <div class="member-join-container">
+               <p>
+                  <mat-form-field>
+                      <input matInput placeholder="Enter your email" [formControl]="email" required>
+                      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+               </p> 
+               <p>
+                  <mat-form-field>
+                      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'">
+                      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </mat-form-field>
+               </p>
+               
+              
+                  <button mat-raised-button>Sign Up!</button>
+             
+               
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+    </mat-card-actions>
+  

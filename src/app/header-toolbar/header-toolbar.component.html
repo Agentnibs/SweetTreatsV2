@@ -1,0 +1,18 @@
+<nav>
+    <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <span class = "title"><a routerLink="/"> Sweet Treats</a></span>
+          
+          <span class = menu-option><a mat-stroked-button routerLink="/orderMenu">Browse Menu</a></span>
+          <span class="example-spacer"></span>
+         
+          <a routerLink ="/cart"> <mat-icon class="example-icon">shopping_cart</mat-icon></a>
+          <mat-icon class="example-icon" [matMenuTriggerFor]="menu" >more_horiz</mat-icon>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item routerLink ="/login">Login</button>
+            <button mat-menu-item routerLink ="/register">Register</button>
+          </mat-menu>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      
+</nav>
