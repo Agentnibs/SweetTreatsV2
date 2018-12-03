@@ -1,3 +1,36 @@
-<p>
-  login-page works!
-</p>
+
+<div *ngIf="userInfo">
+    <div class=login-containetr>
+        <form #loginForm="ngForm" (submit) = "login(loginForm)">
+           <mat-card>
+            <mat-form-field  name="loginForm">
+                <input matInput placeholder="Username"
+                name = "username"
+                [(ngModel)] = userInfo.username
+                #userInfoUserName = "ngModel"
+                required>
+              </mat-form-field>
+            
+              <p>
+                  <mat-form-field>
+                      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+                      name = "password"
+                      [(ngModel)] = "userInfo.password"
+                      #userInfoPassword = "ngModel"
+                      required>
+                      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </mat-form-field>
+              </p>
+              <mat-card-actions>
+                  <button mat-raised-button>Login</button>
+              </mat-card-actions>
+                 
+        </mat-card>
+      </form>
+       
+        <pre>{{ getCurrentModel() }}</pre>
+        
+      </div>
+</div>
+    
+      

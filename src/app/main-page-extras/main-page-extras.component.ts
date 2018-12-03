@@ -9,6 +9,7 @@ import {FormControl, Validators} from '@angular/forms';
 export class MainPageExtrasComponent implements OnInit {
 
   email = new FormControl('', [Validators.required, Validators.email]);
+  hide = true;
   constructor() { }
 
   ngOnInit() {

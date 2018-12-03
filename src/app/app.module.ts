@@ -15,7 +15,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { MemberAccountPageComponent } from './member-account-page/member-account-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { HeaderToolbarComponent } from './header-toolbar/header-toolbar.component';
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { HeaderToolbarComponent } from './header-toolbar/header-toolbar.componen
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
