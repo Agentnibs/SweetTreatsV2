@@ -1,3 +1,125 @@
-<p>
-  signup-page works!
-</p>
+<div *ngIf="signup-page">
+    <div class=register-container>
+        <form #registerForm="ngForm" (submit) = "register(registerForm)">
+           <mat-card>
+<!-- 
+              <p>
+                  <mat-form-field name ="email"> 
+                      <input matInput placeholder="Enter Your email" [formControl]="email" 
+                      email = "email"
+                      [(ngModel)] = registerInfo.email
+                      #registerInfoEmail = "ngModel"
+                      required>
+                      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+              </p> -->
+                
+              <p>
+                  <mat-form-field  name="username">
+                      <input matInput placeholder="Enter a Username"
+                      name = "username"
+                      [(ngModel)] = registerInfo.username
+                      #registerInfoUserName = "ngModel"
+                      required>
+                    </mat-form-field>
+
+              </p>
+
+              <!-- <p>
+                <mat-form-field name = firstname>
+                  <input matInput placeholder = "Enter Your First Name"
+                  name = "firstname"
+                  [(ngModel)] = registerInfo.firstname
+                  #registerInfoFirstName = "ngModel"
+                  required>
+                </mat-form-field>
+              </p>
+
+              <p>
+                  <mat-form-field name = lastname>
+                    <input matInput placeholder = "Enter Your Last Name"
+                    name = "lastname"
+                    [(ngModel)] = registerInfo.lastname
+                    #registerInfoLastName = "ngModel"
+                    required>
+                  </mat-form-field>
+                </p>
+
+                <p>
+                    <mat-form-field name = address1>
+                      <input matInput placeholder = "Address 1"
+                      name = "address1"
+                      [(ngModel)] = registerInfo.address1
+                      #registerInfoAddress1 = "ngModel"
+                      required>
+                    </mat-form-field>
+                  </p>
+
+                  <p>
+                      <mat-form-field name = address2>
+                        <input matInput placeholder = "Address 2"
+                        name = "address2"
+                        [(ngModel)] = registerInfo.address2
+                        #registerInfoAddress2 = "ngModel"
+                        required>
+                      </mat-form-field>
+                    </p>
+
+                    <p>
+                        <mat-form-field name = city>
+                          <input matInput placeholder = "City"
+                          name = "city"
+                          [(ngModel)] = registerInfo.city
+                          #registerInfoCity = "ngModel"
+                          required>
+                        </mat-form-field>
+                      </p>
+
+                      <p>
+                          <mat-form-field name = state>
+
+                            <mat-select placeholder ="State"
+                            name = "state"
+                            [(ngModel)] = registerInfo.state
+                            #registerInfoState = "ngModel"
+                            required>
+                              <mat-option>None</mat-option>
+                              <mat-option *ngFor="let state of states" [value]="state">{{state}}</mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                        </p>
+
+                        <p>
+                          <mat-form-field name = postalCode>
+                            <input matInput placeholder="Postal Code"
+                            name = "postalcode"
+                            [(ngModel)] = registerInfo.postalcode
+                            #registerInfoPostalCode = "ngModel"
+                            required>
+                          </mat-form-field>
+                        </p>
+
+
+              <p>
+                  <mat-form-field>
+                      <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
+                      name = "password"
+                      [(ngModel)] = "userInfo.password"
+                      #registerInfoPassword = "ngModel"
+                      required>
+                      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </mat-form-field>
+              </p>
+              <mat-card-actions>
+                  <button mat-raised-button>Register</button>
+              </mat-card-actions> -->
+                 
+        </mat-card>
+      </form>
+       
+        <!-- <pre>{{ getCurrentModel() }}</pre> -->
+        
+      </div>
+</div>
+    
+      

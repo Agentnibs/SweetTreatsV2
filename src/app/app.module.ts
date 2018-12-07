@@ -16,6 +16,9 @@ import { MemberAccountPageComponent } from './member-account-page/member-account
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { HeaderToolbarComponent } from './header-toolbar/header-toolbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginPageComponent,
     MemberAccountPageComponent,
     SignupPageComponent,
-    HeaderToolbarComponent
+    HeaderToolbarComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -37,7 +41,10 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSelectModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]
