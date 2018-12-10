@@ -1,8 +1,56 @@
-<div *ngIf="signup-page">
+
+<h2>Register An Account</h2>
+<p>Please fill out the following fields and click register to register your account</p>
+
+<mat-card>
+  <p>
+    <mat-form-field name = "username">
+    <input matInput placeholder="Username">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field name = "email">
+    <input matInput placeholder="Email">
+    </mat-form-field>
+  </p>  
+  <p>
+    <mat-form-field name = "firstname">
+    <input matInput placeholder="First Name">
+    </mat-form-field>
+
+    <mat-form-field name = "lastname">
+    <input matInput placeholder="Last Name">
+    </mat-form-field>
+  </p>  
+  <p>
+    <mat-form-field name = "address1">
+    <input matInput placeholder="Address 1">
+    </mat-form-field>
+    <mat-form-field name = "address2">
+    <input matInput placeholder="Address 2">
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field name = "city">
+    <input matInput placeholder="City">
+    </mat-form-field>
+    <mat-form-field name = "state">
+    <input matInput placeholder="State">
+    </mat-form-field>
+    <mat-form-field name = "postalcode">
+    <input matInput placeholder="Postal Code">
+    </mat-form-field>
+  </p>
+         
+  
+</mat-card>
+
+
+<!-- <div *ngIf="signup-page">
     <div class=register-container>
         <form #registerForm="ngForm" (submit) = "register(registerForm)">
            <mat-card>
-<!-- 
+
               <p>
                   <mat-form-field name ="email"> 
                       <input matInput placeholder="Enter Your email" [formControl]="email" 
@@ -12,7 +60,7 @@
                       required>
                       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
                     </mat-form-field>
-              </p> -->
+              </p>
                 
               <p>
                   <mat-form-field  name="username">
@@ -25,7 +73,7 @@
 
               </p>
 
-              <!-- <p>
+              <p>
                 <mat-form-field name = firstname>
                   <input matInput placeholder = "Enter Your First Name"
                   name = "firstname"
@@ -112,14 +160,14 @@
               </p>
               <mat-card-actions>
                   <button mat-raised-button>Register</button>
-              </mat-card-actions> -->
+              </mat-card-actions>
                  
         </mat-card>
       </form>
        
-        <!-- <pre>{{ getCurrentModel() }}</pre> -->
+        <pre>{{ getCurrentModel() }}</pre>
         
       </div>
 </div>
     
-      
+       -->
