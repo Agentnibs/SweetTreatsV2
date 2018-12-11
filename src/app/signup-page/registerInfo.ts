@@ -5,6 +5,7 @@ export class registerInfo {
       username: string,
       password: string,
       email:  string,
+      phone: string,
       firstName: string,
       lastName: string,
       address1: string,
@@ -14,4 +15,6 @@ export class registerInfo {
       postalCode: string,
 
       ) {}
+
+
   }

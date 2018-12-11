@@ -7,42 +7,32 @@
             </mat-card-header>
             <img mat-card-image src="../../assets/images/chocolate-close-up-cookies-extrasmall.png" alt="Photo of chocolate chip cookies">
             <mat-card-actions>
-                <mat-accordion>
-                    <mat-expansion-panel [expanded]="true">
-                      <mat-expansion-panel-header>
-                          <mat-panel-title></mat-panel-title>
-                          <mat-panel-description>
-                              View Details
-                          </mat-panel-description>
-                      </mat-expansion-panel-header>
-                     <p>We named this cookie the “Ultimate Chocolate Chip Cookie” because it’s got everything a cookie connoisseur possibly could ask for. With a texture that balances tender and crunchy, it’s a favorite recipe that’s been top-rated by hundreds of satisfied customers. </p>
-                     <div class="cookie-detail-container">
-                       <p>
-                          <mat-form-field>
-                              <mat-select placeholder="Select Package">
-                                  <mat-option value="option">10 Cookies</mat-option>
-                                  <mat-option value="option">20 Cookies</mat-option>
-                                  <mat-option value="option">30 Cookies</mat-option>
-                                  <mat-option value="option">50 Cookies</mat-option>
-                                  <mat-option value="option">100 Cookies</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                       </p> 
-                       <p>
-                          <mat-form-field>
-                              <input matInput placeholder="QTY">
-                            </mat-form-field>
-                       </p>
-                       
-                      <mat-action-row>
-                          <button mat-raised-button>Add To Cart</button>
-                      </mat-action-row>
-                        
+                    <p>We named this cookie the “Ultimate Chocolate Chip Cookie” because it’s got everything a cookie connoisseur possibly could ask for. With a texture that balances tender and crunchy, it’s a favorite recipe that’s been top-rated by hundreds of satisfied customers. </p>
+                    <div class="cookie-detail-container">
+                      <p>
                      
-                       
-                      </div>
-                    </mat-expansion-panel>
-                  </mat-accordion>
+                      </p> 
+                     <div class="cartoptions" *ngIf="this.data.isLoggedIn; else loggedOut">
+                            <p>
+                                <mat-form-field>
+                                        <input matInput placeholder="QTY"
+                                        name = "chocolatechipQTY"
+                                        [(ngModel)] = orderdetails.chocolateChipQty>
+                                      </mat-form-field>
+                                      
+                                 </p>
+                                 
+                                <mat-action-row>
+                                    <button mat-raised-button id="1" (click)="AddToCart(this.data.activeUserID, 1)" 
+                                    >Add To Cart</button>
+                                </mat-action-row>
+                     </div>
+                     <ng-template #loggedOut>
+                         <a mat-raised-button routerLink="/login">To start ordering please log in.</a>                          
+                     </ng-template>
+                     
+                    </div>
+              
             </mat-card-actions>
           </mat-card>
     </mat-grid-tile>
@@ -50,45 +40,37 @@
         <mat-card class="example-card">
             <mat-card-header>
               
-              <mat-card-title>Cupcakes</mat-card-title>          
+              <mat-card-title>Snickerdoodles</mat-card-title>          
             </mat-card-header>
-            <img mat-card-image src="../../assets/images/baked-baked-goods-bakery-extrasmall.png" alt="Photo of a Shiba Inu">
+            <img mat-card-image src="../../assets/images/OO-Snicker.jpg" alt="Photo of Snickerdoodles">
             
             <mat-card-actions>
-                <mat-accordion>
-                    <mat-expansion-panel [expanded]="true">
-                      <mat-expansion-panel-header>
-                          <mat-panel-title></mat-panel-title>
-                          <mat-panel-description>
-                              View Details
-                          </mat-panel-description>
-                      </mat-expansion-panel-header>
-                     <p>You'll fall in love we these simple yet delightfully rich cupcakes! </p>
-                     <div class="cookie-detail-container">
-                       <p>
-                          <mat-form-field>
-                              <mat-select placeholder="Select Package">
-                                  <mat-option value="option">10 Cupcakes</mat-option>
-                                  <mat-option value="option">20 Cupcakes</mat-option>
-                                  <mat-option value="option">30 Cupcakes</mat-option>
-                                  <mat-option value="option">50 Cupcakes</mat-option>
-                                  <mat-option value="option">100 Cupcakes</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                       </p> 
-                       <p>
-                          <mat-form-field>
-                              <input matInput placeholder="QTY">
-                            </mat-form-field>
-                       </p>
-                       
-                       <mat-action-row>
-                          <button mat-raised-button>Add To Cart</button>
-                       </mat-action-row>
-                       
-                      </div>
-                    </mat-expansion-panel>
-                  </mat-accordion>
+
+                    <p>Our Snickerdoodles are baked fresh every morning. Super soft, buttery and loaded with cinnamon and sugar. </p>
+                    <div class="cookie-detail-container">
+                      <p>
+                     
+                      </p> 
+                      <div class="cartoptions" *ngIf="this.data.isLoggedIn; else loggedOut">
+                            <p>
+                                <mat-form-field>
+                                        <input matInput placeholder="QTY"
+                                        name = "snickerdoodleQTY"
+                                        [(ngModel)] = orderdetails.snickerdoodleQty>                        
+                                      </mat-form-field>
+                                 </p>
+                                 
+                                <mat-action-row>
+                                    <button mat-raised-button (click)="AddToCart(this.data.activeUserID, 2)">Add To Cart</button>
+                                </mat-action-row>
+                     </div>
+                     <ng-template #loggedOut>
+                         <a mat-raised-button routerLink="/login">To start ordering please log in.</a>                          
+                     </ng-template>
+                      
+                     </div>
+
+            
             </mat-card-actions>
           </mat-card>
     </mat-grid-tile>
@@ -96,48 +78,218 @@
         <mat-card class="example-card">
             <mat-card-header>
               
-              <mat-card-title>Cakes</mat-card-title>
+              <mat-card-title>Peanut Butter</mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="../../assets/images/baked-bakery-baking-extrasmall.png" alt="Photo of a Shiba Inu">
+            <img mat-card-image src="../../assets/images/OO-Peanut.jpg" alt="Photo of Peanutbutter cookies">
            
             <mat-card-actions>
-                <mat-accordion>
-                    <mat-expansion-panel [expanded]="true">
-                      <mat-expansion-panel-header>
-                          <mat-panel-title></mat-panel-title>
-                          <mat-panel-description>
-                              View Details
-                          </mat-panel-description>
-                      </mat-expansion-panel-header>
-                     <p>These cakes are sure to impress!</p>
-                     <div class="cookie-detail-container">
-                       <p>
-                          <mat-form-field>
-                              <mat-select placeholder="Select Package">
-                                  <mat-option value="option">10 Person Party Pack</mat-option>
-                                  <mat-option value="option">20 Person Party Pack</mat-option>
-                                  <mat-option value="option">30 Person Party Pack</mat-option>
-                                  <mat-option value="option">50 Person Party Pack</mat-option>
-                                  <mat-option value="option">100 Person Party Pack</mat-option>
-                                </mat-select>
-                            </mat-form-field>
-                       </p> 
-                       <p>
-                          <mat-form-field>
-                              <input matInput placeholder="QTY">
-                            </mat-form-field>
-                       </p>
-                       
-                       <mat-action-row>
-                          <button mat-raised-button>Add To Cart</button>
-                       </mat-action-row>
-                       
-                      </div>
-                    </mat-expansion-panel>
-                  </mat-accordion>
+                <p>Peanut butter cookies made with real, freshly made peanut butter.</p>
+                    <div class="cookie-detail-container">
+                            <p>
+                            </p> 
+                            <div class="cartoptions" *ngIf="this.data.isLoggedIn; else loggedOut">
+                                    <p>
+                                        <mat-form-field>
+                                                <input matInput placeholder="QTY"
+                                                name = "peanutbutterQTY"
+                                                [(ngModel)] = orderdetails.peanutbutterQty>
+                                              </mat-form-field>
+                                         </p>
+                                         
+                                        <mat-action-row>
+                                            <button mat-raised-button (click)="AddToCart(this.data.activeUserID, 3)">Add To Cart</button>
+                                        </mat-action-row>
+                             </div>
+                             <ng-template #loggedOut>
+                                 <a mat-raised-button routerLink="/login">To start ordering please log in.</a>                          
+                             </ng-template>
+                            
+                           </div>
+               
             </mat-card-actions>
           </mat-card>
     </mat-grid-tile>
    
+    <mat-grid-tile>
+            <mat-card class="example-card">
+                <mat-card-header>
+                  
+                  <mat-card-title>M&M Cookies</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="../../assets/images/OO-MM.jpg" alt="Photo of M&M Cookies">
+               
+                <mat-card-actions>
+                    <p>Peanut butter cookies made with real, freshly made peanut butter.</p>
+                        <div class="cookie-detail-container">
+                                <p>
+                                </p> 
+                                <div class="cartoptions" *ngIf="this.data.isLoggedIn; else loggedOut">
+                                        <p>
+                                            <mat-form-field>
+                                                    <input matInput placeholder="QTY"
+                                                    name = "MMQTY"
+                                                    [(ngModel)] = orderdetails.mmCookieQty>
+                                                  </mat-form-field>
+                                             </p>
+                                             
+                                            <mat-action-row>
+                                                <button mat-raised-button (click)="AddToCart(this.data.activeUserID, 4)">Add To Cart</button>
+                                            </mat-action-row>
+                                 </div>
+                                 <ng-template #loggedOut>
+                                     <a mat-raised-button routerLink="/login">To start ordering please log in.</a>                          
+                                 </ng-template>
+                                
+                               </div>
+                   
+                </mat-card-actions>
+              </mat-card>
+        </mat-grid-tile>
+       
+ 
+        <mat-grid-tile>
+                <mat-card class="example-card">
+                    <mat-card-header>
+                      
+                      <mat-card-title>Oatmeal Raisin</mat-card-title>
+                    </mat-card-header>
+                    <img mat-card-image src="../../assets/images/OO-OatRaisin.jpg" alt="Photo of Oatmeal Raisin Cookies">
+                   
+                    <mat-card-actions>
+                        <p>Peanut butter cookies made with real, freshly made peanut butter.</p>
+                            <div class="cookie-detail-container">
+                                    <p>
+                                    </p> 
+                                    <div class="cartoptions" *ngIf="this.data.isLoggedIn; else loggedOut">
+                                            <p>
+                                                <mat-form-field>
+                                                        <input matInput placeholder="QTY"
+                                                        name = "oatmealRaisinQTY"
+                                                        [(ngModel)] = orderdetails.oatmealRaisinQty>
+                                                      </mat-form-field>
+                                                 </p>
+                                                 
+                                                <mat-action-row>
+                                                    <button mat-raised-button (click)="AddToCart(this.data.activeUserID, 5)">Add To Cart</button>
+                                                </mat-action-row>
+                                     </div>
+                                     <ng-template #loggedOut>
+                                         <a mat-raised-button routerLink="/login">To start ordering please log in.</a>                          
+                                     </ng-template>
+                                    
+                                   </div>
+                       
+                    </mat-card-actions>
+                  </mat-card>
+            </mat-grid-tile>
+           
+
+            <mat-grid-tile>
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                          
+                          <mat-card-title>Sugar</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="../../assets/images/OO-Sugar.jpg" alt="Photo of Sugar Cookies">
+                       
+                        <mat-card-actions>
+                            <p>Peanut butter cookies made with real, freshly made peanut butter.</p>
+                                <div class="cookie-detail-container">
+                                        <p>
+                                        </p> 
+                                        <div class="cartoptions" *ngIf="this.data.isLoggedIn; else loggedOut">
+                                                <p>
+                                                    <mat-form-field>
+                                                            <input matInput placeholder="QTY"
+                                                            name = "sugarQTY"
+                                                            [(ngModel)] = orderdetails.sugarQty>
+                                                          </mat-form-field>
+                                                     </p>
+                                                     
+                                                    <mat-action-row>
+                                                        <button mat-raised-button (click)="AddToCart(this.data.activeUserID, 6)">Add To Cart</button>
+                                                    </mat-action-row>
+                                         </div>
+                                         <ng-template #loggedOut>
+                                             <a mat-raised-button routerLink="/login">To start ordering please log in.</a>                          
+                                         </ng-template>
+                                        
+                                       </div>
+                           
+                        </mat-card-actions>
+                      </mat-card>
+                </mat-grid-tile>
+               
+                <mat-grid-tile>
+                        <mat-card class="example-card">
+                            <mat-card-header>
+                              
+                              <mat-card-title>Pecan Chocolate Chip</mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image src="../../assets/images/OO-ChocChipPecan.jpg" alt="Photo of Pecan Chocolate Chip Cookies">
+                           
+                            <mat-card-actions>
+                                <p>Peanut butter cookies made with real, freshly made peanut butter.</p>
+                                    <div class="cookie-detail-container">
+                                            <p>
+                                            </p> 
+                                            <div class="cartoptions" *ngIf="this.data.isLoggedIn; else loggedOut">
+                                                    <p>
+                                                        <mat-form-field>
+                                                                <input matInput placeholder="QTY"
+                                                                name = "pecanChocoQTY"
+                                                                [(ngModel)] = orderdetails.pecanChipQty>
+                                                              </mat-form-field>
+                                                         </p>
+                                                         
+                                                        <mat-action-row>
+                                                            <button mat-raised-button (click)="AddToCart(this.data.activeUserID, 7)">Add To Cart</button>
+                                                        </mat-action-row>
+                                             </div>
+                                             <ng-template #loggedOut>
+                                                 <a mat-raised-button routerLink="/login">To start ordering please log in.</a>                          
+                                             </ng-template>
+                                            
+                                           </div>
+                               
+                            </mat-card-actions>
+                          </mat-card>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                            <mat-card class="example-card">
+                                <mat-card-header>
+                                  
+                                  <mat-card-title>Mint Chocolate Chip</mat-card-title>
+                                </mat-card-header>
+                                <img mat-card-image src="../../assets/images/OO-MintChoc.jpg" alt="Photo of Mint Chocolate Chip Cookies">
+                               
+                                <mat-card-actions>
+                                    <p>Peanut butter cookies made with real, freshly made peanut butter.</p>
+                                        <div class="cookie-detail-container">
+                                                <p>
+                                                </p> 
+                                                <div class="cartoptions" *ngIf="this.data.isLoggedIn; else loggedOut">
+                                                        <p>
+                                                            <mat-form-field>
+                                                                    <input matInput placeholder="QTY"
+                                                                    name = "mintchocoQTY"
+                                                                    [(ngModel)] = orderdetails.mintChocoQty>
+                                                                  </mat-form-field>
+                                                             </p>
+                                                             
+                                                            <mat-action-row>
+                                                                <button mat-raised-button (click)="AddToCart(this.data.activeUserID, 8)">Add To Cart</button>
+                                                            </mat-action-row>
+                                                 </div>
+                                                 <ng-template #loggedOut>
+                                                     <a mat-raised-button routerLink="/login">To start ordering please log in.</a>                          
+                                                 </ng-template>
+                                                
+                                               </div>
+                                   
+                                </mat-card-actions>
+                              </mat-card>
+                        </mat-grid-tile>
+                                  
   </mat-grid-list>
 

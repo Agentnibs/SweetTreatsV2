@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { SweettreatsService } from '../sweettreats.service';
+import { OrderMenuPageComponent } from '../order-menu-page/order-menu-page.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import {CartserviceService } from '../cartservice.service';
 
 @Component({
   selector: 'app-header-toolbar',
@@ -6,10 +10,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-toolbar.component.scss']
 })
 export class HeaderToolbarComponent implements OnInit {
-
-  constructor() { }
+  //public cart:OrderMenuPageComponent 
+  constructor(public data: SweettreatsService,
+    public cart: CartserviceService){}
 
   ngOnInit() {
+  }
+
+
+  logout(){
+    console.log("clicked logout")
+    this.data.activeUser = null;
+    window.location.reload();
   }
 
 }

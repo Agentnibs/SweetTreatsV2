@@ -6,11 +6,14 @@
           <span class = menu-option><a mat-stroked-button routerLink="/orderMenu">Browse Menu</a></span>
           <span class="example-spacer"></span>
          
-          <a routerLink ="/cart"> <mat-icon class="example-icon">shopping_cart</mat-icon></a>
-          <mat-icon class="example-icon" [matMenuTriggerFor]="menu" >more_horiz</mat-icon>
+          <a routerLink ="/cart"><mat-icon class="menu-icon" matBadge= {{cart.cartCounter}} matBadgeColor="warn">shopping_cart</mat-icon></a>
+          
+          <mat-icon class="menu-icon" [matMenuTriggerFor]="menu" >more_horiz</mat-icon>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item routerLink ="/login">Login</button>
-            <button mat-menu-item routerLink ="/register">Register</button>
+            <button mat-menu-item routerLink ="/login" *ngIf="this.data.isLoggedIn">{{this.data.activeUser}}</button>
+            <button mat-menu-item routerLink ="/" *ngIf="this.data.isLoggedIn" (click) = "logout()">Logout</button>
+            <button mat-menu-item routerLink ="/login" *ngIf="this.data.isLoggedIn == false">Login</button>
+            <button mat-menu-item routerLink ="/register" *ngIf="this.data.isLoggedIn == false">Register</button>
           </mat-menu>
         </mat-toolbar-row>
       </mat-toolbar>

@@ -368,13 +368,11 @@ MIT
 
 @angular/material/grid-list
 
-@angular/material/select
-
-@angular/material/core
-
-@angular/material/toolbar
+@angular/material/dialog
 
 @angular/material/menu
+
+@angular/material/toolbar
 
 zone.js
 MIT

@@ -13,12 +13,14 @@ import { OrderMenuPageComponent } from './order-menu-page/order-menu-page.compon
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { MemberAccountPageComponent } from './member-account-page/member-account-page.component';
-import { SignupPageComponent } from './signup-page/signup-page.component';
+import { SignupPageComponent, SignupConfirmationDialogComponent } from './signup-page/signup-page.component';
 import { HeaderToolbarComponent } from './header-toolbar/header-toolbar.component';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MemberAccountPageComponent,
     SignupPageComponent,
     HeaderToolbarComponent,
+    SignupConfirmationDialogComponent
     
   ],
   imports: [
@@ -44,7 +47,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     HttpClientModule,
     MatSelectModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatDialogModule,
+    MatBadgeModule
+  ],
+  entryComponents: [
+    SignupConfirmationDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

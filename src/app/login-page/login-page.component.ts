@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SweettreatsService } from '../sweettreats.service';
 import { Observable } from 'rxjs';
 import { user } from './user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -16,9 +17,9 @@ export class LoginPageComponent implements OnInit {
   success: string;
   hide = true;
 
-  userInfo = new user('','');
+  userInfo = new user('','',null);
 
-  constructor(private data: SweettreatsService) { }
+  constructor(private data: SweettreatsService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -37,16 +38,43 @@ login(loginForm){
     this.data.login(this.userInfo).subscribe(
       (res: user[]) => {
         // Update the list of cars
-        this.userInfo = res;
+        console.log("Res" + res);
 
-        // Inform the user
-        this.success = 'Created successfully';
+      
+        
+
+        this.userInfo = res;
+        console.log(this.userInfo);
+        console.log(this.userInfo["Username"]);
+        console.log(this.userInfo["UserID"]);
+        console.log("xxxx" + this.userInfo);
+        
+  // Inform the user
+  if (this.userInfo["Username"] != null){
+    console.log('Logged in successfully')
+    //redirect
+    this.router.navigate([''])
+    this.data.setLoggedIn(true);
+    this.data.activeUser = this.userInfo["Username"];
+    this.data.activeUserID = this.userInfo["UserID"];
+  } 
+
+  else{
+    window.alert("User Not Found");
+    loginForm.reset();
+    this.userInfo = new user('','',null);
+  }
+        
+       
 
         // Reset the form
-        loginForm.reset();
+      
       },
       (err) => this.error = err
     );
+
+   
+   
 }
 
 
