@@ -3,6 +3,7 @@ import { SweettreatsService } from '../sweettreats.service';
 import { Observable } from 'rxjs';
 import { user } from './user';
 import { Router } from '@angular/router';
+import { CartserviceService } from '../cartservice.service';
 
 @Component({
   selector: 'app-login-page',
@@ -19,9 +20,10 @@ export class LoginPageComponent implements OnInit {
 
   userInfo = new user('','',null);
 
-  constructor(private data: SweettreatsService, private router: Router) { }
+  constructor(private data: SweettreatsService, private router: Router, private cart: CartserviceService) { }
 
   ngOnInit() {
+    this.userInfo = new user('','',null);
   }
 
   getCurrentModel() { 
@@ -39,44 +41,56 @@ login(loginForm){
       (res: user[]) => {
         // Update the list of cars
         console.log("Res" + res);
-
-      
-        
-
         this.userInfo = res;
         console.log(this.userInfo);
         console.log(this.userInfo["Username"]);
         console.log(this.userInfo["UserID"]);
         console.log("xxxx" + this.userInfo);
-        
-  // Inform the user
+        delay(1000);
+
+            // Inform the user
   if (this.userInfo["Username"] != null){
-    console.log('Logged in successfully')
-    //redirect
-    this.router.navigate([''])
-    this.data.setLoggedIn(true);
-    this.data.activeUser = this.userInfo["Username"];
-    this.data.activeUserID = this.userInfo["UserID"];
+
+    if(this.userInfo["Username"] == "Unknown"){
+      window.alert("User Not Found");
+      loginForm.reset();
+      this.userInfo = new user('','',null);
+    
+    }
+    else{
+      console.log('Logged in successfully')
+      //redirect
+      this.router.navigate([''])
+      this.data.setLoggedIn(true);
+      this.data.activeUser = this.userInfo["Username"];
+      this.data.activeUserID = this.userInfo["UserID"];
+    }
+    
+
   } 
 
-  else{
-    window.alert("User Not Found");
-    loginForm.reset();
-    this.userInfo = new user('','',null);
-  }
-        
-       
+  // else{
+  //   window.alert("User Not Found");
+  //   loginForm.reset();
+  //   this.userInfo = new user('','',null);
+  
+  // }
 
-        // Reset the form
-      
-      },
+},
       (err) => this.error = err
-    );
+    )
+    
+    
 
+    //this.cart.getCartNum();
+    
    
-   
-}
+  }
 
+
+  hello(){
+    
+  }
 
   // login(){
   //   this.error = '';
@@ -90,4 +104,8 @@ login(loginForm){
   // }
 
 
+}
+
+ async function delay(ms: number) {
+  return new Promise( resolve => setTimeout(resolve, ms) );
 }

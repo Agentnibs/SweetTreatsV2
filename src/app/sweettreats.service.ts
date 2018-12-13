@@ -46,6 +46,7 @@ login(userInfo: user){
   
   var x =  this.http.post(`${this.baseUrl}/login.php`, {data:userInfo})
   return x;
+  
   // .pipe(map((res) => {
   //   this.cars.push(res['data']);
   //   return this.cars;
@@ -86,6 +87,14 @@ private handleError(error: HttpErrorResponse) {
 }
 
 
+getCartSimple(id:number): Observable<cartItems> {
+  console.log("ID:" + id);
+   const requestUrl =
+   `${this.baseUrl}/GetCart.php?userid=${id}`;
+ 
+   return this.http.get<any>(requestUrl);
+ }
+
 
 getCartItems(id:number, sort: string, order: string, page: number): Observable<any> {
  console.log("ID:" + id);
@@ -120,5 +129,7 @@ export interface cartItems {
   description: string;
   price: string;
   qty: string;
+  extendedPrice: string;
+  itemsCount: string;
 }
 

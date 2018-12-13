@@ -6,7 +6,7 @@
           <span class = menu-option><a mat-stroked-button routerLink="/orderMenu">Browse Menu</a></span>
           <span class="example-spacer"></span>
          
-          <a routerLink ="/cart"><mat-icon class="menu-icon" matBadge= {{cart.cartCounter}} matBadgeColor="warn">shopping_cart</mat-icon></a>
+          <a routerLink ="/cart"><mat-icon class="menu-icon" matBadge= {{cart.cartCounter}} matBadgeColor="warn" *ngIf="this.data.isLoggedIn">shopping_cart</mat-icon></a>
           
           <mat-icon class="menu-icon" [matMenuTriggerFor]="menu" >more_horiz</mat-icon>
           <mat-menu #menu="matMenu">

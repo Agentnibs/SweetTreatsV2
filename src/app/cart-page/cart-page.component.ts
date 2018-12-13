@@ -6,13 +6,14 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { TenderInfo } from './TenderInfo';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-cart-page',
   templateUrl: './cart-page.component.html',
   styleUrls: ['./cart-page.component.scss']
 })
 export class CartPageComponent implements OnInit {
-  displayedColumns: string[] = ['itemNumber', 'description', 'qty', 'price'];
+  displayedColumns: string[] = ['itemNumber', 'description', 'qty', 'price', 'extendedPrice']; //, 'extendedPrice'
   exampleDatabase: SweettreatsService | null;
   data: cartItems[] = [];
   tenderInfo = new TenderInfo(null,null);
@@ -24,7 +25,10 @@ export class CartPageComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(public dialog: MatDialog,private router: Router, private datax: SweettreatsService, private http: HttpClient) {}
+  constructor(public dialog: MatDialog,
+    private router: Router,
+     private datax: SweettreatsService,
+      private http: HttpClient) {}
 
   ngOnInit() {
     this.exampleDatabase = new SweettreatsService(this.http);
@@ -59,7 +63,7 @@ export class CartPageComponent implements OnInit {
 
 
   getTotalCost() {
-    return this.data.map(t => t.price).reduce((acc, value) => +acc + +value, 0);
+    return this.data.map(t => t.extendedPrice).reduce((acc, value) => +acc + +value, 0);
   }
 
 
@@ -101,8 +105,8 @@ export class CartPageComponent implements OnInit {
 
 
 @Component({
-  selector: 'Tender-confirmation-dialog',
-  templateUrl: 'Tender-confirmation-dialog.html',
+  selector: 'tender-confirmation-dialog',
+  templateUrl: 'tender-confirmation-dialog.html',
 })
 export class TenderConfirmationDialogComponent {
 
@@ -115,4 +119,9 @@ export class TenderConfirmationDialogComponent {
     this.dialogRef.close();
     this.router.navigate([''])
   }
+
+ getRandomInvoice(): number{
+   return Math.floor(Math.random() * Math.floor(500000));
+ }
+
 }

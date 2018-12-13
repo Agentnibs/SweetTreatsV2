@@ -53,7 +53,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatBadgeModule
   ],
   entryComponents: [
-    SignupConfirmationDialogComponent
+    SignupConfirmationDialogComponent,
+    TenderConfirmationDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

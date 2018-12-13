@@ -1,12 +1,12 @@
 mat-grid-tile {
-    background: lightblue;
+    //background: lightblue;
     
   }
 
   .example-card {
     width: 450px;
     height: 700px;
-
+    background-color: #fafafa;
   }
   
   .example-header-image {
@@ -17,3 +17,4 @@ mat-grid-tile {
   md-grid-tile figure {
     align-items: flex-start!important;
 }
+
