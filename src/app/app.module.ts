@@ -10,7 +10,7 @@ import { MainPageExtrasComponent } from './main-page-extras/main-page-extras.com
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { FooterToolbarComponent } from './footer-toolbar/footer-toolbar.component';
 import { OrderMenuPageComponent } from './order-menu-page/order-menu-page.component';
-import { CartPageComponent } from './cart-page/cart-page.component';
+import { CartPageComponent, TenderConfirmationDialogComponent } from './cart-page/cart-page.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { MemberAccountPageComponent } from './member-account-page/member-account-page.component';
 import { SignupPageComponent, SignupConfirmationDialogComponent } from './signup-page/signup-page.component';
@@ -34,7 +34,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MemberAccountPageComponent,
     SignupPageComponent,
     HeaderToolbarComponent,
-    SignupConfirmationDialogComponent
+    SignupConfirmationDialogComponent,
+    TenderConfirmationDialogComponent
     
   ],
   imports: [

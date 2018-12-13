@@ -366,6 +366,20 @@ MIT
 
 @angular/material/button
 
+@angular/material/progress-spinner
+
+@angular/material/sort
+
+@angular/material/table
+
+@angular/material/tooltip
+
+@angular/material/core
+
+@angular/material/select
+
+@angular/material/paginator
+
 @angular/material/grid-list
 
 @angular/material/dialog

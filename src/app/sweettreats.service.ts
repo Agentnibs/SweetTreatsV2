@@ -9,6 +9,7 @@ import { user } from './login-page/user';
 import { registerInfo } from './signup-page/registerInfo';
 import { JsonPipe } from '@angular/common';
 import {OrderDetails} from './order-menu-page/OrderDetails'
+import { TenderInfo } from './cart-page/TenderInfo';
 
 
 @Injectable({
@@ -84,7 +85,40 @@ private handleError(error: HttpErrorResponse) {
   return throwError('Error! something went wrong.');
 }
 
+
+
+getCartItems(id:number, sort: string, order: string, page: number): Observable<any> {
+ console.log("ID:" + id);
+  const requestUrl =
+  `${this.baseUrl}/GetCart.php?userid=${id}`;
+
+  return this.http.get<any>(requestUrl);
 }
 
 
+tenderCart(tenderInfo: TenderInfo): Observable<TenderInfo[]>{
+
+  return this.http.post(`${this.baseUrl}/TenderCart.php`,{data:tenderInfo})
+  .pipe(map((res) => {
+    this.cars.push(res['data']);
+    return this.cars;
+  }),
+  catchError(this.handleError));
+}
+
+
+
+}
+
+export interface CartApi {
+  items: cartItems[];
+  //total_count: number;
+}
+
+export interface cartItems {
+  itemNumber: string;
+  description: string;
+  price: string;
+  qty: string;
+}
 
