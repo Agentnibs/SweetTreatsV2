@@ -56,4 +56,18 @@
     <mat-paginator [length]="resultsLength" [pageSize]="30"></mat-paginator>
   </div>
 
+
+  <div class="extra-discount">
+    <span class="discount-label">
+        <span ng-if="this.qualifyForDiscount === 1">{{specialsDiscount()}}</span> 
+    </span>
+</div>
+
+  <div ><p></p>
+      <!-- <mat-card >
+    <mat-card-title>Your new Total with discount is {{specialsDiscount()}}</mat-card-title>
+    </mat-card> -->
+    
+    </div>
+   
   <button mat-raised-button (click)="TenderCart()">Tender</button>

@@ -12,6 +12,7 @@
         [(ngModel)] = registerInfo.username
         #registerInfoUserName = "ngModel"
         required>
+        <mat-error *ngIf=username.invalid>{{ getErrorMessageUsername() }}</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'"
@@ -19,6 +20,7 @@
           [(ngModel)] = "registerInfo.password"
           #userInfoPassword = "ngModel"
           required>
+          <mat-error *ngIf=password.invalid>{{ getErrorMessagePW() }}</mat-error>
           <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </mat-form-field>
       </p>
@@ -41,6 +43,7 @@
         [(ngModel)] = registerInfo.firstName
         #registerInfoFirstName = "ngModel"
         required>
+        <mat-error *ngIf=firstName.invalid>{{ getErrorMessageFN() }}</mat-error>
         </mat-form-field>
     
         <mat-form-field name = "lastname">
@@ -49,6 +52,7 @@
         [(ngModel)] = registerInfo.lastName
         #registerInfoLastName = "ngModel"
         required>
+        <mat-error *ngIf=lastName.invalid>{{ getErrorMessageLN() }}</mat-error>
         </mat-form-field>
         <mat-form-field name = "phone">
           <input matInput placeholder="Phone Number"
@@ -56,6 +60,7 @@
           [(ngModel)] = registerInfo.phone
           #registerInfoPhone = "ngModel"
           required>
+          <mat-error *ngIf=phone.invalid>{{ getErrorMessagePHN() }}</mat-error>
           </mat-form-field>
       </p>  
       <p>
@@ -65,6 +70,7 @@
         [(ngModel)] = registerInfo.address1
         #registerInfoAddress1 = "ngModel"
         required>
+        <mat-error *ngIf=address.invalid>{{ getErrorMessageADD() }}</mat-error>
         </mat-form-field>
         <mat-form-field name = "address2">
         <input matInput placeholder="Address 2"
@@ -81,6 +87,7 @@
         [(ngModel)] = registerInfo.city
         #registerInfoCity = "ngModel"
         required>
+        <mat-error *ngIf=city.invalid>{{ getErrorMessageCITY() }}</mat-error>
         </mat-form-field>
         <mat-form-field name = "state">
         <input matInput placeholder="State"
@@ -88,6 +95,7 @@
         [(ngModel)] = registerInfo.state
         #registerInfoState = "ngModel"
         required>
+        <mat-error *ngIf=state.invalid>{{ getErrorMessageST() }}</mat-error>
         </mat-form-field>
         <mat-form-field name = "postalcode">      
         <input matInput placeholder="Postal Code"
@@ -95,6 +103,7 @@
         [(ngModel)] = registerInfo.postalCode
         #registerInfoPostalCode = "ngModel"
         required>
+        <mat-error *ngIf=zip.invalid>{{ getErrorMessageZIP() }}</mat-error>
         </mat-form-field>
       </p>
       <mat-card-actions>

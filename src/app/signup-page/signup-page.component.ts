@@ -20,6 +20,15 @@ export class SignupPageComponent implements OnInit {
   success: string;
 
   email = new FormControl('', [Validators.required, Validators.email]);
+  username = new FormControl('', [Validators.required]);
+  password = new FormControl('', [Validators.required]);
+  firstName = new FormControl('', [Validators.required]);
+  lastName = new FormControl('', [Validators.required]);
+  phone = new FormControl('', [Validators.required]);
+  address = new FormControl('', [Validators.required]);
+  city = new FormControl('', [Validators.required]);
+  state = new FormControl('', [Validators.required]);
+  zip = new FormControl('', [Validators.required]);
   registerInfo = new registerInfo('','','','','','','','','','','');
   
   constructor(
@@ -65,12 +74,51 @@ export class SignupPageComponent implements OnInit {
   }
 
 
+  getErrorMessageUsername() {
+    if (this.username.hasError('required')) 
+    return 'You must enter a value'    
+  }
+
+  getErrorMessagePW() {
+    if (this.password.hasError('required')) 
+    return 'You must enter a value'    
+  }
+  getErrorMessageFN() {
+    if (this.firstName.hasError('required')) 
+    return 'You must enter a value'    
+  }
+  getErrorMessageLN() {
+    if (this.lastName.hasError('required')) 
+    return 'You must enter a value'    
+  }
+  getErrorMessagePHN() {
+    if (this.phone.hasError('required')) 
+    return 'You must enter a value'    
+  }
+  getErrorMessageADD() {
+    if (this.address.hasError('required')) 
+    return 'You must enter a value'    
+  }
+
+  getErrorMessageCITY() {
+    if (this.city.hasError('required')) 
+    return 'You must enter a value'    
+  }
+  getErrorMessageST() {
+    if (this.state.hasError('required')) 
+    return 'You must enter a value'    
+  }
+  getErrorMessageZIP() {
+    if (this.zip.hasError('required')) 
+    return 'You must enter a value'    
+  }
   getErrorMessage() {
     return this.email.hasError('required') ? 'You must enter a value' :
         this.email.hasError('email') ? 'Not a valid email' : '';
   }
 
   register(registerForm){
+
     console.log("register clicked");
     console.log(this.registerInfo);
     this.error = '';
@@ -82,9 +130,10 @@ export class SignupPageComponent implements OnInit {
         this.registerInfo = res;
 
         this.success = "created succesfully";
-
+       
         //registerForm.reset();
       }
+       
     )
     
 

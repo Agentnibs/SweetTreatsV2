@@ -6,6 +6,7 @@ import {catchError, map, startWith, switchMap} from 'rxjs/operators';
 import { HttpClient } from '@angular/common/http';
 import { TenderInfo } from './TenderInfo';
 import { Router } from '@angular/router';
+import {MatListModule} from '@angular/material/list';
 
 @Component({
   selector: 'app-cart-page',
@@ -17,6 +18,8 @@ export class CartPageComponent implements OnInit {
   exampleDatabase: SweettreatsService | null;
   data: cartItems[] = [];
   tenderInfo = new TenderInfo(null,null);
+  qualifyForDiscount = false;
+
 
   resultsLength = 0;
   isLoadingResults = true;
@@ -63,7 +66,30 @@ export class CartPageComponent implements OnInit {
 
 
   getTotalCost() {
+    var total = this.data.map(t => t.extendedPrice).reduce((acc, value) => +acc + +value, 0);
+    if (total > 100){
+      this.qualifyForDiscount = true;
+    }
     return this.data.map(t => t.extendedPrice).reduce((acc, value) => +acc + +value, 0);
+  }
+
+
+  specialsDiscount() {
+   var total = this.getTotalCost();
+
+   if (total > 100 && total < 199){
+     var newTotal = total * .90;
+     
+     var finalstring = "Sweet! You've qualified for a 10% discount! Your final total is $" + newTotal.toFixed(2);
+   }
+
+   if (total > 200){
+    var newTotal = total * .85;
+    var finalstring = "Sweet! You've qualified for a 15% discount! Your final total is " + newTotal.toFixed(2);
+  }
+
+return finalstring;
+
   }
 
 
