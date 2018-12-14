@@ -357,14 +357,8 @@ MIT
 
 @angular/material/expansion
 
-@angular/material/form-field
-
 @angular/forms
 MIT
-
-@angular/material/icon
-
-@angular/material/button
 
 @angular/material/progress-spinner
 
@@ -376,11 +370,17 @@ MIT
 
 @angular/material/core
 
+@angular/material/form-field
+
 @angular/material/select
+
+@angular/material/button
 
 @angular/material/paginator
 
 @angular/material/grid-list
+
+@angular/material/icon
 
 @angular/material/dialog
 
